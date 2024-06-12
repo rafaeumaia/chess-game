@@ -21,6 +21,7 @@ class Main:
         while True:
             # Calls function to show the board background
             game.show_bg(screen)
+            game.show_pieces(screen)
 
             # Verifies if the player closed the game
             for event in pygame.event.get():
