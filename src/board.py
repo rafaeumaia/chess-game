@@ -176,12 +176,10 @@ class Board:
         # Rooks
         self.squares[row_other][0] = Square(row_other, 0, Rook(color))
         self.squares[row_other][7] = Square(row_other, 7, Rook(color))
-        self.squares[4][4] = Square(4, 4, Rook(color))
 
         # Queens
         self.squares[row_other][3] = Square(row_other, 3, Queen(color))
 
         # Kings
         self.squares[row_other][4] = Square(row_other, 4, King(color))
-        self.squares[3][3] = Square(3, 3, King(color))
 
