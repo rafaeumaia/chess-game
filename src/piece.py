@@ -18,7 +18,7 @@ class Piece:
             f'assets/img/pieces-{size}px/{self.color}_{self.name}.{file_type}'
         )
 
-    def add_moves(self, move):
+    def add_move(self, move):
         self.moves.append(move)
 
 
