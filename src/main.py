@@ -23,8 +23,11 @@ class Main:
         while True:
             # Calls function to show the board background
             game.show_bg(screen)
+            # Show valid moves of the pieces
+            game.show_moves(screen)
             # Calls function to show pieces
             game.show_pieces(screen)
+
             if dragger.dragging:
                 dragger.update_blit(screen)
 
@@ -38,12 +41,19 @@ class Main:
                     # If the square clicked has a piece
                     if board.squares[clicked_row][clicked_col].has_piece():
                         piece = board.squares[clicked_row][clicked_col].piece
+                        board.calc_moves(piece, clicked_row, clicked_col)
                         dragger.save_initial(event.pos)
                         dragger.drag_piece(piece)
+                        game.show_bg(screen)
+                        game.show_moves(screen)
+                        game.show_pieces(screen)
 
                 elif event.type == pygame.MOUSEMOTION:
                     if dragger.dragging:
                         dragger.update_mouse(event.pos)
+                        game.show_bg(screen)
+                        game.show_moves(screen)
+                        game.show_pieces(screen)
                         dragger.update_blit(screen)
 
                 elif event.type == pygame.MOUSEBUTTONUP:
