@@ -8,6 +8,7 @@ from dragger import Dragger
 class Game:
 
     def __init__(self):
+        self.next_player = 'white'
         self.board = Board()
         self.dragger = Dragger()
 
@@ -39,7 +40,7 @@ class Game:
                         piece.texture_rect = img.get_rect(center=img_center)
                         surface.blit(img, piece.texture_rect)
 
-    def show_moves(self, surface):
+    def show_move(self, surface):
         if self.dragger.dragging:
             piece = self.dragger.piece
 
@@ -47,3 +48,19 @@ class Game:
                 color = '#C86464' if (move.final.row + move.final.col) % 2 == 0 else '#C84646'
                 rect = (move.final.col * SQUARE_SIZE, move.final.row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE)
                 pygame.draw.rect(surface, color, rect)
+
+    def show_last_move(self, surface):
+        if self.board.last_move:
+            initial = self.board.last_move.initial
+            final = self.board.last_move.final
+
+            for pos in [initial, final]:
+                color = (244, 247, 116) if (pos.row + pos.col) % 2 == 0 else (172, 195, 51)
+                rect = (pos.col * SQUARE_SIZE, pos.row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE)
+                pygame.draw.rect(surface, color, rect)
+
+    def next_turn(self):
+        self.next_player = 'white' if self.next_player == 'black' else 'black'
+
+    def reset(self):
+        self.__init__()
