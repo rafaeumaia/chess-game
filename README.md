@@ -21,5 +21,7 @@ Clone o repositório para sua máquina local:
 ```bash
 git clone <URL_DO_REPOSITORIO>
 
-```bash
 cd <NOME_DA_PASTA>
+
+
+
