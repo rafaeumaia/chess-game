@@ -19,11 +19,28 @@ Siga os passos abaixo para clonar e executar o projeto em sua máquina local:
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/RodegheriLucas/BiblioTechA.git
 ```
+
+### 2. Acessar o Diretório do Projeto
+
 Entre no diretório do projeto clonado:
+
 ```
-cd <NOME_DA_PASTA>
+cd BiblioTechA
 ```
 
+### 3. Restaurar Dependências
 
+Restaure as dependências do projeto com o comando:
+
+```
+dotnet restore
+```
+### 4. Atualizar o Banco de Dados
+
+Aplique as migrações e atualize o banco de dados com o comando:
+
+```
+dotnet ef database update
+```
